@@ -9,23 +9,24 @@ abstract class Geolocation {
         this.code = code;
     }
 
-    protected Geolocation(){
+    protected Geolocation() {
         this.name = "Default";
         this.code = 0;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
-    public void setCode(int code){
+
+    public void setCode(int code) {
         this.code = code;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
 
-    public int getCode(){
+    public int getCode() {
         return this.code;
     }
 }
