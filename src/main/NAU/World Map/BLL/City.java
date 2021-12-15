@@ -20,7 +20,7 @@ class City extends Geolocation {
         this.residents = residents;
     }
 
-    public boolean isCapital() {
+    public boolean getCapital() {
         return isCapital;
     }
 
@@ -30,6 +30,10 @@ class City extends Geolocation {
 
     public String getCountryMember() {
         return countryMember;
+    }
+
+    public void setCountryMember(String country) {
+        this.countryMember = country;
     }
 
     @Override
