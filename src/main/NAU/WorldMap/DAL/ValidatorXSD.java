@@ -13,11 +13,10 @@ import java.io.IOException;
 
 class ValidatorXSD {
     static void validator() {
-        String language = XMLConstants.W3C_XML_SCHEMA_INSTANCE_NS_URI;
         String fileName = "resources\\XMLdata.xml";
         String schemaName = "resources\\WorldMap.xsd";
 
-        SchemaFactory factory = SchemaFactory.newInstance(language);
+        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         File schemaLocation = new File(schemaName);
         try {
             Schema schema = factory.newSchema(schemaLocation);

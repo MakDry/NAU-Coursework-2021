@@ -1,4 +1,4 @@
-package BLL;
+package DAL;
 
 import BLL.World;
 
@@ -10,7 +10,7 @@ public class XMLSerializer {
 
     public static void serializeToXML(World world) {
         //ValidatorXSD.validator();
-        try (XMLEncoder out = new XMLEncoder(new ObjectOutputStream(new FileOutputStream("XMLdata.xml")))) {
+        try (XMLEncoder out = new XMLEncoder(new ObjectOutputStream(new FileOutputStream("src\\main\\resources\\XMLdata.xml")))) {
             out.writeObject(world);
         } catch (IOException e) {
             e.getMessage();
@@ -20,7 +20,7 @@ public class XMLSerializer {
     public static World deserializeFromXML() {
         World world = new World();
         //ValidatorXSD.validator();
-        try (XMLDecoder in = new XMLDecoder(new ObjectInputStream(new FileInputStream("XMLdata.xml")))) {
+        try (XMLDecoder in = new XMLDecoder(new ObjectInputStream(new FileInputStream("src\\main\\resources\\XMLdata.xml")))) {
             world = (World) in.readObject();
         } catch (IOException e) {
             e.getMessage();

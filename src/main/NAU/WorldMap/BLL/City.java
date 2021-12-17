@@ -1,6 +1,6 @@
 package BLL;
 
-class City extends Geolocation {
+public class City extends Geolocation {
     private int residents;
     private boolean isCapital;
     private String countryMember;
@@ -10,6 +10,13 @@ class City extends Geolocation {
         this.residents = residents;
         this.isCapital = isCapital;
         this.countryMember = countryMember;
+    }
+
+    public City(){
+        super(null, 0);
+        residents = 0;
+        isCapital = false;
+        countryMember = null;
     }
 
     public int getResidents() {
@@ -38,11 +45,10 @@ class City extends Geolocation {
 
     @Override
     public String toString() {
-        return "City{" +
-                ", cityName=" + getName() +
-                ", code=" + getCode() +
-                "residents=" + residents +
-                ", isCapital=" + isCapital + '\'' +
-                '}';
+        return "\nCity data:" +
+                "\n1. City name: " + getName() +
+                "\n2. Unique code: " + getCode() +
+                "\n3. Number of residents: " + getResidents() +
+                "\n4. Capital status: " + getCapital();
     }
 }

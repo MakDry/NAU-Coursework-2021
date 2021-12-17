@@ -2,7 +2,7 @@ package BLL;
 
 import static java.util.Arrays.copyOf;
 
-class Country extends Geolocation { // Написати Exception на нульовий аргумент / Оптимізувати метод toString
+public class Country extends Geolocation { // Написати Exception на нульовий аргумент / Оптимізувати метод toString
     private City[] cities;
 
     public Country(String name, int code) {
@@ -10,23 +10,21 @@ class Country extends Geolocation { // Написати Exception на нуль�
         cities = new City[3];
     }
 
-    void changeCityParameters(String cityName, int cityCode, int residents, boolean isCapital) {
-        for (int i = 0; i < cities.length; i++) {
-            if (cities[i].getName().equals(cityName)) {
-                cities[i].setCode(cityCode);
-                cities[i].setResidents(residents);
-                cities[i].setCapital(isCapital);
-            }
-        } // Exception на null
+    public Country() {
+        super(null, 0);
+        cities = new City[3];
     }
 
-    City searchCity(int cityCode) {
+    void changeCityParameters(String cityName, int cityCode, int residents, boolean isCapital) {
         for (int i = 0; i < cities.length; i++) {
-            if (cities[i].getCode() == cityCode) {
-                return cities[i];
+            if (cities[i] != null) {
+                if (cities[i].getName().equals(cityName)) {
+                    cities[i].setCode(cityCode);
+                    cities[i].setResidents(residents);
+                    cities[i].setCapital(isCapital);
+                }
             }
         }
-        return null;
     }
 
     void addCity(String cityName, int cityCode, int residents, boolean isCapital, String countryMember) {
@@ -48,8 +46,12 @@ class Country extends Geolocation { // Написати Exception на нуль�
         } // Exception на null
     }
 
-    String getCities() {
-        return cities.toString();
+    public City[] getCities() {
+        return cities;
+    }
+
+    public void setCities(City[] cities) {
+        this.cities = cities;
     }
 
     private void citiesSpaceChecker() {
@@ -67,9 +69,8 @@ class Country extends Geolocation { // Написати Exception на нуль�
 
     @Override
     public String toString() {
-        return "Country{" +
-                ", countryName=" + getName() +
-                ", code=" + getCode() + '\'' +
-                '}';
+        return "\nCountry data: " +
+                "\n1. Country name: " + getName() +
+                "\n2. Unique code: " + getCode();
     }
 }

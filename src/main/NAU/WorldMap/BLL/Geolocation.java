@@ -1,10 +1,10 @@
 package BLL;
 
-abstract class Geolocation {
+public abstract class Geolocation {
     private String name;
     private int code;
 
-    protected Geolocation(String name, int code) {
+    public Geolocation(String name, int code) {
         this.name = name;
         this.code = code;
     }
