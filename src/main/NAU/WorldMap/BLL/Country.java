@@ -2,7 +2,7 @@ package BLL;
 
 import static java.util.Arrays.copyOf;
 
-public class Country extends Geolocation { // Написати Exception на нульовий аргумент / Оптимізувати метод toString
+public class Country extends Geolocation {
     private City[] cities;
 
     public Country(String name, int code) {
@@ -43,7 +43,7 @@ public class Country extends Geolocation { // Написати Exception на н
                 cities[i] = null;
                 return;
             }
-        } // Exception на null
+        }
     }
 
     public City[] getCities() {

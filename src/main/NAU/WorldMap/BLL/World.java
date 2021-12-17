@@ -2,7 +2,7 @@ package BLL;
 
 import static java.util.Arrays.copyOf;
 
-public class World { // Написати Exception на нульовий аргумент
+public class World {
     private Country[] countries;
 
     public World() {
@@ -17,7 +17,7 @@ public class World { // Написати Exception на нульовий арг�
                 }
             }
         }
-        return null; // Exception на null
+        return null;
     }
 
     public void changeCityParameters(String countryName, String cityName, int cityCode, int residents, boolean isCapital) {
@@ -26,7 +26,7 @@ public class World { // Написати Exception на нульовий арг�
                 countries[i].changeCityParameters(cityName, cityCode, residents, isCapital);
                 return;
             }
-        } // Exception на null
+        }
     }
 
     public void changeCountryParameters(String countryName, String newUserCountryName, int newUserCountryCode) {
@@ -35,7 +35,9 @@ public class World { // Написати Exception на нульовий арг�
                 countries[i].setName(newUserCountryName);
                 countries[i].setCode(newUserCountryCode);
                 for (int j = 0; j < countries[i].getCities().length; j++) {
-                    countries[i].getCities()[j].setCountryMember(newUserCountryName);
+                    if (countries[i].getCities()[j] != null) {
+                        countries[i].getCities()[j].setCountryMember(newUserCountryName);
+                    }
                 }
                 return;
             }
@@ -57,7 +59,7 @@ public class World { // Написати Exception на нульовий арг�
                 }
             }
         }
-        return null; // Exception на null
+        return null;
     }
 
     public void removeCountry(String countryName) {
